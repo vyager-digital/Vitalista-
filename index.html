@@ -27,7 +27,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--wh);color:var(--ink);over
 .nb{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);transition:box-shadow .3s}
 .nb.up{box-shadow:0 4px 40px rgba(92,52,160,.07)}
 .ni{max-width:1300px;margin:0 auto;padding:0 48px;height:70px;display:flex;align-items:center;justify-content:space-between}
-.nl img{height:32px;display:block}
+.nl img{height:40px;display:block}
 .nl-fb{font-family:'Clash Display',sans-serif;font-size:20px;font-weight:700;color:var(--v);display:none}
 .nm{display:flex;align-items:center;gap:4px}
 .nm a{font-size:13.5px;font-weight:500;color:var(--ink2);padding:7px 14px;border-radius:6px;transition:color .15s,background .15s}
@@ -456,7 +456,7 @@ footer{background:#06060E;padding:72px 0 36px}
   <div class="wrap">
     <div class="sv-hd rv">
       <div><p class="ky">What We Deliver</p><h2 class="sv-h">Our Solutions</h2></div>
-      <a href="#contact" class="btn bg">All Services</a>
+
     </div>
     <div>
       <div class="sv-row rv"><span class="sv-n">01</span><span class="sv-nm">Solar PV Design</span><span class="sv-ds">Precision-engineered PV systems tailored to your site, load profile, and financial objectives.</span><span class="sv-tg">Design & Engineering</span></div>
@@ -598,7 +598,7 @@ footer{background:#06060E;padding:72px 0 36px}
             <mpath href="#ps2"/>
           </animateMotion>
         </circle>
-        <path id="ps2" d="M85,228 C185,228 268,228 278,228" fill="none"/>
+        <path id="ps2" d="M85,228 L278,228" fill="none"/>
 
         <circle r="3.5" fill="#C5F135" opacity=".9">
           <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.7s">
@@ -613,7 +613,7 @@ footer{background:#06060E;padding:72px 0 36px}
             <mpath href="#ps2r"/>
           </animateMotion>
         </circle>
-        <path id="ps2r" d="M278,236 L83,236" fill="none"/>
+        <path id="ps2r" d="M278,236 L85,236" fill="none"/>
 
         <!-- Loads outward — slightly dimmer to show dispatch vs. supply -->
         <circle r="3.5" fill="#C5F135" opacity=".75">
@@ -649,35 +649,39 @@ footer{background:#06060E;padding:72px 0 36px}
 
         <!-- ── SOURCE NODE CARDS ── Left column -->
 
-        <!-- Solar PV: rect(20,65,80,62) centre(60,96) -->
+        <!-- Solar PV: card rect(20,65,80,62) → card-centre (60,96) -->
         <rect x="20" y="65" width="80" height="62" rx="8" fill="white" stroke="#EDE7FA" stroke-width="1.5" filter="url(#ns3)"/>
-        <!-- Solar panel: 3-col x 2-row cell grid, centred at (60,88) -->
-        <rect x="36" y="73" width="44" height="28" rx="3" fill="#EDE7FA" stroke="#5C34A0" stroke-width="1.5"/>
-        <line x1="51" y1="73" x2="51" y2="101" stroke="#5C34A0" stroke-width="1" opacity=".4"/>
-        <line x1="66" y1="73" x2="66" y2="101" stroke="#5C34A0" stroke-width="1" opacity=".4"/>
-        <line x1="36" y1="87" x2="80" y2="87" stroke="#5C34A0" stroke-width="1" opacity=".4"/>
-        <!-- Sun symbol, top-right corner of panel -->
-        <circle cx="74" cy="78" r="5" fill="none" stroke="#C5F135" stroke-width="1.5"/>
-        <line x1="74" y1="70" x2="74" y2="68" stroke="#C5F135" stroke-width="1.3" stroke-linecap="round"/>
-        <line x1="80" y1="72" x2="81.4" y2="70.6" stroke="#C5F135" stroke-width="1.3" stroke-linecap="round"/>
-        <line x1="82" y1="78" x2="84" y2="78" stroke="#C5F135" stroke-width="1.3" stroke-linecap="round"/>
-        <!-- Stand legs, centred under panel -->
-        <line x1="49" y1="101" x2="46" y2="110" stroke="#5C34A0" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
-        <line x1="71" y1="101" x2="74" y2="110" stroke="#5C34A0" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        <g transform="translate(60,91)">
+          <!-- Panel: symmetric x=-18..+18, y=-10..+10 -->
+          <rect x="-18" y="-10" width="36" height="20" rx="3" fill="#EDE7FA" stroke="#5C34A0" stroke-width="1.5"/>
+          <line x1="-6"  y1="-10" x2="-6"  y2="10"  stroke="#5C34A0" stroke-width="1" opacity=".4"/>
+          <line x1="6"   y1="-10" x2="6"   y2="10"  stroke="#5C34A0" stroke-width="1" opacity=".4"/>
+          <line x1="-18" y1="0"   x2="18"  y2="0"   stroke="#5C34A0" stroke-width="1" opacity=".4"/>
+          <!-- Sun in top-right cell corner: cx=14, cy=-10 (sits on top-right corner of panel) -->
+          <circle cx="14" cy="-10" r="5" fill="#EDE7FA" stroke="#C5F135" stroke-width="1.5"/>
+          <line x1="14" y1="-17" x2="14" y2="-19" stroke="#C5F135" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="19" y1="-15" x2="21" y2="-17" stroke="#C5F135" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="21" y1="-10" x2="23" y2="-10" stroke="#C5F135" stroke-width="1.3" stroke-linecap="round"/>
+          <!-- Legs symmetric around x=0 -->
+          <line x1="-7" y1="10" x2="-10" y2="19" stroke="#5C34A0" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <line x1="7"  y1="10" x2="10"  y2="19" stroke="#5C34A0" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        </g>
         <text x="60" y="140" text-anchor="middle" font-family="Clash Display,sans-serif" font-size="10" font-weight="600" fill="#3A1D70">Solar PV</text>
 
-        <!-- Battery Storage: rect(5,196,80,62) centre(45,227) -->
+        <!-- Battery: card rect(5,196,80,62) → card-centre (45,227) -->
         <rect x="5" y="196" width="80" height="62" rx="8" fill="white" stroke="#EDE7FA" stroke-width="1.5" filter="url(#ns3)"/>
-        <!-- Battery body, centred at x=45 -->
-        <rect x="17" y="209" width="50" height="26" rx="4" fill="#EDE7FA" stroke="#5C34A0" stroke-width="1.6"/>
-        <!-- Terminal nub -->
-        <rect x="67" y="216" width="7" height="14" rx="2" fill="#5C34A0" opacity=".2" stroke="#5C34A0" stroke-width="1.3"/>
-        <!-- 3 charge segments -->
-        <rect x="21" y="213" width="12" height="18" rx="2" fill="#5C34A0" opacity=".5"/>
-        <rect x="36" y="213" width="12" height="18" rx="2" fill="#5C34A0" opacity=".3"/>
-        <rect x="51" y="213" width="12" height="18" rx="2" fill="#5C34A0" opacity=".12"/>
-        <!-- Lime dot -->
-        <circle cx="27" cy="222" r="3" fill="#C5F135" opacity=".9"/>
+        <!-- Body=50px + nub=7px = 57px total. Visual centre=28.5 from left edge. -->
+        <!-- Translate: (45-28.5, 227-13) = (16.5→17, 214) -->
+        <g transform="translate(17,214)">
+          <!-- Body: x=0,y=0,w=50,h=26 -->
+          <rect x="0" y="0" width="50" height="26" rx="4" fill="#EDE7FA" stroke="#5C34A0" stroke-width="1.6"/>
+          <!-- Nub: x=50 -->
+          <rect x="50" y="6" width="7" height="14" rx="2" fill="#5C34A0" opacity=".2" stroke="#5C34A0" stroke-width="1.3"/>
+          <!-- 3 segments, 4px left margin, 3px gaps -->
+          <rect x="4"  y="4" width="13" height="18" rx="2" fill="#5C34A0" opacity=".5"/>
+          <rect x="20" y="4" width="13" height="18" rx="2" fill="#5C34A0" opacity=".3"/>
+          <rect x="36" y="4" width="11" height="18" rx="2" fill="#5C34A0" opacity=".12"/>
+        </g>
         <text x="45" y="272" text-anchor="middle" font-family="Clash Display,sans-serif" font-size="10" font-weight="600" fill="#3A1D70">Battery</text>
 
         <!-- Utility Grid: rect(20,326,80,62) centre(60,357) -->
