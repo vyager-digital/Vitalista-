@@ -741,26 +741,22 @@ footer{background:#06060E;padding:72px 0 36px}
         <rect x="609" y="116" width="7" height="4" rx="1" fill="#5C34A0" opacity=".3"/>
         <text x="600" y="142" text-anchor="middle" font-family="Clash Display,sans-serif" font-size="10" font-weight="600" fill="#3A1D70">HVAC</text>
 
-        <!-- Pumps: rect(560,165,80,62) centre(600,196) -->
-        <rect x="560" y="165" width="80" height="62" rx="8" fill="white" stroke="#EDE7FA" stroke-width="1.5" filter="url(#ns3)"/>
-        <!-- Base plate centred at x=600 -->
-        <rect x="567" y="218" width="66" height="5" rx="2" fill="#5C34A0" opacity=".18" stroke="#5C34A0" stroke-width="1.4"/>
-        <!-- Motor block: 24px wide, starts at x=570 -->
-        <rect x="570" y="180" width="24" height="41" rx="3" fill="#5C34A0" opacity=".1" stroke="#5C34A0" stroke-width="1.6"/>
-        <line x1="574" y1="186" x2="590" y2="186" stroke="#5C34A0" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
-        <line x1="574" y1="193" x2="590" y2="193" stroke="#5C34A0" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
-        <line x1="574" y1="200" x2="590" y2="200" stroke="#5C34A0" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
-        <!-- Coupling: 8px wide -->
-        <rect x="594" y="192" width="8" height="10" rx="1" fill="#5C34A0" opacity=".25" stroke="#5C34A0" stroke-width="1.2"/>
-        <!-- Pump body: 20px wide, ends at x=622 → total assembly 570-622=52px, centre=596. Shift right 4: start=574 -->
-        <rect x="602" y="174" width="22" height="44" rx="3" fill="#EDE7FA" stroke="#5C34A0" stroke-width="1.6"/>
-        <!-- Control box centred on pump -->
-        <rect x="606" y="165" width="14" height="10" rx="2" fill="#EDE7FA" stroke="#5C34A0" stroke-width="1.3"/>
-        <!-- Outlet elbow -->
-        <line x1="624" y1="196" x2="631" y2="196" stroke="#5C34A0" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="631" y1="188" x2="631" y2="196" stroke="#5C34A0" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="631" cy="185" r="2" fill="#C5F135" opacity=".9"/>
-        <text x="600" y="242" text-anchor="middle" font-family="Clash Display,sans-serif" font-size="10" font-weight="600" fill="#3A1D70">Pumps</text>
+        <!-- Pumps -->
+<g class="pumps-shift">
+  <rect x="560" y="165" width="80" height="62" rx="8" fill="white" stroke="#EDE7FA" stroke-width="1.5" filter="url(#ns3)"/>
+  <rect x="567" y="218" width="66" height="5" rx="2" fill="#5C34A0" opacity=".18" stroke="#5C34A0" stroke-width="1.4"/>
+  <rect x="570" y="180" width="24" height="41" rx="3" fill="#5C34A0" opacity=".1" stroke="#5C34A0" stroke-width="1.6"/>
+  <line x1="574" y1="186" x2="590" y2="186" stroke="#5C34A0" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+  <line x1="574" y1="193" x2="590" y2="193" stroke="#5C34A0" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+  <line x1="574" y1="200" x2="590" y2="200" stroke="#5C34A0" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+  <rect x="594" y="192" width="8" height="10" rx="1" fill="#5C34A0" opacity=".25" stroke="#5C34A0" stroke-width="1.2"/>
+  <rect x="602" y="174" width="22" height="44" rx="3" fill="#EDE7FA" stroke="#5C34A0" stroke-width="1.6"/>
+  <rect x="606" y="165" width="14" height="10" rx="2" fill="#EDE7FA" stroke="#5C34A0" stroke-width="1.3"/>
+  <line x1="624" y1="196" x2="631" y2="196" stroke="#5C34A0" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="631" y1="188" x2="631" y2="196" stroke="#5C34A0" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="631" cy="185" r="2" fill="#C5F135" opacity=".9"/>
+  <text x="600" y="242" text-anchor="middle" font-family="Clash Display,sans-serif" font-size="10" font-weight="600" fill="#3A1D70">Pumps</text>
+</g>
 
         <!-- Irrigation: rect(560,261,80,62) centre(600,292) -->
         <rect x="560" y="261" width="80" height="62" rx="8" fill="white" stroke="#EDE7FA" stroke-width="1.5" filter="url(#ns3)"/>
@@ -830,6 +826,7 @@ footer{background:#06060E;padding:72px 0 36px}
     <!-- MOBILE: Controller diagram — badge strip layout -->
     <div class="mg-diagram-mobile">
       <svg viewBox="0 0 300 402" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <style> .pumps-shift { transform: translateY(0px); transform-box: fill-box; transform-origin: center; } @media (max-width: 768px) { .pumps-shift { transform: translateY(8px); } } </style>
         <defs>
           <filter id="ns2m"><feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="#5C34A0" flood-opacity=".28"/></filter>
           <filter id="ns3m"><feDropShadow dx="0" dy="1" stdDeviation="4" flood-color="#5C34A0" flood-opacity=".12"/></filter>
